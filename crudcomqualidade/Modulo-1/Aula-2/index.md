@@ -1,0 +1,19 @@
+# aula: input, processamento e output. A base de tuddo
+
+- tudo em tecnologia se resume a `Entrada -> processamento -> saída``
+    - **frontend (web/mobile/android/ios/hibrido react native/flutter)**
+        - Quem da a entrada?
+            - Usuário
+        - Quem processa?
+            - Navegador/Celular
+                - Dev
+                    - (JavaScript ou alguma linguagem que compila para js)
+                    - Swift
+                    - Java
+        - Como é a saída?
+            - Elemento aparecendo na tela pro usário
+                - alert
+                - console.log
+                - HTML + CSS
+            - cookie/localStorege/AsyncStorage/ qualquer storage disponivel no front
+    - **backend**
