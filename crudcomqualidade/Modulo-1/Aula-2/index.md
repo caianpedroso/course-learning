@@ -17,3 +17,15 @@
                 - HTML + CSS
             - cookie/localStorege/AsyncStorage/ qualquer storage disponivel no front
     - **backend**
+        - Quem da a entrada?
+            - Usuário
+            - JSON
+        - Quem processa?
+            - Serve
+                - DEV (Java, PHP, JavaScript)
+        - Como é a saída?
+            - JSON
+            - Texto
+            - Html
+
+- Request -> Response
