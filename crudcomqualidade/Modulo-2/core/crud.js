@@ -10,4 +10,4 @@ function create(content) {
 }
 
 // SIMULATION
-console.log(create("hoje eu preciso gravar aulas!"))
+console.log(create("hoje eu preciso gravar aulas!!"))
