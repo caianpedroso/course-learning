@@ -1,6 +1,6 @@
 import fs from "fs"; // ES6
 // const fs = require("fs");
-const DB_FILE_PATH = "./core/db";
+const DB_FILE_PATH = "./db";
 
 console.log('[Crud]');
 
@@ -10,5 +10,11 @@ function create(content: string) {
     return content
 }
 
+function read() {
+    const db = fs.readFileSync(DB_FILE_PATH, "utf-8")
+    return db;
+}
+
 // SIMULATION
-console.log(create("hoje eu preciso gravar aulas!!"))
+create("Segunda TODO")
+console.log(read())
