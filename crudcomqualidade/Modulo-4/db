@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": "5ae122a8-94f6-4965-b1fe-e0a296c9cd19",
+      "date": "2024-01-10T00:55:07.840Z",
+      "content": "Primeira TODO",
+      "done": false
+    },
+    {
+      "id": "e9986e62-c818-4bcf-87e8-ae29a037e77e",
+      "date": "2024-01-10T00:55:07.840Z",
+      "content": "Atualizada",
+      "done": false
+    }
+  ]
+}
