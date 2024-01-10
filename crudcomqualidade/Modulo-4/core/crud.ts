@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 // const fs = require("fs");
 const DB_FILE_PATH = "./db";
 
-console.log("[Crud]");
+// console.log("[Crud]");
 
 type UUID = string;
 
@@ -110,18 +110,18 @@ function CLEAR_DB() {
 }
 
 // SIMULATION
-CLEAR_DB();
-create("Primeira TODO");
-const secondTodo = create("Segunda TODO");
-deleteById(secondTodo.id);
-const thirdTodo = create("Terceira TODO");
-// update(thirdTodo.id, {
-//     content: "Segunda TODO com novo content!",
-//     done: true,
-// })
-updateContentById(thirdTodo.id, "Atualizada");
+// CLEAR_DB();
+// create("Primeira TODO");
+// const secondTodo = create("Segunda TODO");
+// deleteById(secondTodo.id);
+// const thirdTodo = create("Terceira TODO");
+// // update(thirdTodo.id, {
+// //     content: "Segunda TODO com novo content!",
+// //     done: true,
+// // })
+// updateContentById(thirdTodo.id, "Atualizada");
 
-const todos = read();
-console.log(todos);
+// const todos = read();
+// console.log(todos);
 
-console.log(todos.length);
+// console.log(todos.length);

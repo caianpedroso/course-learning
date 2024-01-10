@@ -20,8 +20,14 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@db-crud-todo": [
+        "core/crud.js"
+      ],
       "@ui/*": [
         "src/ui/*"
+      ],
+      "@server/*": [
+        "src/server/*"
       ]
     }
   },
