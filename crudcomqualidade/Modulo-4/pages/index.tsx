@@ -2,7 +2,23 @@ import { GlobalStyles } from "@ui/theme/GlobalStyles";
 
 const bg = "/bg.jpeg";
 
+const todos = [
+    {
+      id: "5ae122a8-94f6-4965-b1fe-e0a296c9cd19",
+      date: "2024-01-10T00:55:07.840Z",
+      content: "Primeira TODO",
+      done: false
+    },
+    {
+      id: "e9986e62-c818-4bcf-87e8-ae29a037e77e",
+      date: "2024-01-10T00:55:07.840Z",
+      content: "Atualizada",
+      done: false
+    }
+  ];
+
 export default function Page() {
+    console.log("todos ", todos)
     return (
         <main>
             <GlobalStyles themeName="devsoutinho" />
@@ -43,24 +59,22 @@ export default function Page() {
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                            </td>
-                            <td>d4f26</td>
-                            <td>
-                                Conteúdo de uma TODO Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Eaque vero facilis
-                                obcaecati, autem aliquid eius! Consequatur eaque
-                                doloribus laudantium soluta optio odit,
-                                provident, ab voluptates doloremque voluptas
-                                recusandae aspernatur aperiam.
-                            </td>
-                            <td align="right">
-                                <button data-type="delete">Apagar</button>
-                            </td>
-                        </tr>
-
+                        {todos.map((currentTodo) => {
+                            return(
+                            <tr>
+                                <td key={currentTodo.id}>
+                                    <input type="checkbox" />
+                                </td>
+                                <td>{currentTodo.id.substring(0,4)}</td>
+                                <td>{currentTodo.content}</td>
+                                <td align="right">
+                                    <button data-type="delete">Apagar</button>
+                                </td>
+                            </tr>
+                            )
+                        })}
+                        
+{/** 
                         <tr>
                             <td
                                 colSpan={4}
@@ -76,8 +90,8 @@ export default function Page() {
                                 Nenhum item encontrado
                             </td>
                         </tr>
-
-                        <tr>
+*/}
+                       {/** <tr>
                             <td
                                 colSpan={4}
                                 align="center"
@@ -97,6 +111,7 @@ export default function Page() {
                                 </button>
                             </td>
                         </tr>
+                        */} 
                     </tbody>
                 </table>
             </section>
