@@ -6,11 +6,11 @@ function get(_: NextApiRequest, res: NextApiResponse) {
     
     res.status(200).json({
         todos: ALL_TODOS
-    })
+    });
     return;
-}
+};
 
 export const todoController = {
     get,
-}
+};
  
