@@ -1,24 +1,23 @@
+import React from "react";
 import { GlobalStyles } from "@ui/theme/GlobalStyles";
+import { todoController } from "@ui/controller/todo";
 
 const bg = "/bg.jpeg";
 
-const todos = [
-    {
-      id: "5ae122a8-94f6-4965-b1fe-e0a296c9cd19",
-      date: "2024-01-10T00:55:07.840Z",
-      content: "Primeira TODO",
-      done: false
-    },
-    {
-      id: "e9986e62-c818-4bcf-87e8-ae29a037e77e",
-      date: "2024-01-10T00:55:07.840Z",
-      content: "Atualizada",
-      done: false
-    }
-  ];
+interface HomePage {
+    id: string;
+    content: string
+}
 
 export default function Page() {
-    console.log("todos ", todos)
+    const [todos, setTodos] = React.useState<HomePage[]>([]);
+
+    React.useEffect(() => {
+        todoController.get().then((todos) => {
+            setTodos(todos);
+        })
+    }, [])
+
     return (
         <main>
             <GlobalStyles themeName="devsoutinho" />

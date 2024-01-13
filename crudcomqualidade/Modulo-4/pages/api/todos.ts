@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { todoController } from "../../src/server/controller/todo"
+import { todoController } from "@server/controller/todo"
 
 export default function handler(request: NextApiRequest, response: NextApiResponse) {
     console.log(request.method);
