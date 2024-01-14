@@ -4,8 +4,8 @@ async function get() {
         const todosFromServer = JSON.parse(todosString).todos;
         return todosFromServer;
     });
-}
+};
 
 export const todoController = {
     get,
-}
+};
