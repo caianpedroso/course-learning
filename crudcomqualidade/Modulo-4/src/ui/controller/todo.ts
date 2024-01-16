@@ -13,4 +13,4 @@ async function get({ page }: TodoControllerGetParams) {
 
 export const todoController = {
     get,
-}
+};

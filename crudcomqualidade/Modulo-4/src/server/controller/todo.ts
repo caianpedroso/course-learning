@@ -7,6 +7,7 @@ function get(_: NextApiRequest, res: NextApiResponse) {
     res.status(200).json({
         todos: ALL_TODOS
     });
+console.log( ALL_TODOS)
     return;
 };
 
