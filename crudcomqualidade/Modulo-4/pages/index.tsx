@@ -10,10 +10,11 @@ interface HomePage {
 }
 
 export default function Page() {
+    const [ page, setPage ] = React.useState(1)
     const [todos, setTodos] = React.useState<HomePage[]>([]);
 
     React.useEffect(() => {
-        todoController.get().then((todos) => {
+        todoController.get({ page }).then(({ todos }) => {
             setTodos(todos);
         })
     }, [])
@@ -73,7 +74,7 @@ export default function Page() {
                             )
                         })}
                         
-{/** 
+
                         <tr>
                             <td
                                 colSpan={4}
@@ -89,8 +90,8 @@ export default function Page() {
                                 Nenhum item encontrado
                             </td>
                         </tr>
-*/}
-                       {/** <tr>
+
+                        <tr>
                             <td
                                 colSpan={4}
                                 align="center"
@@ -110,7 +111,6 @@ export default function Page() {
                                 </button>
                             </td>
                         </tr>
-                        */} 
                     </tbody>
                 </table>
             </section>
