@@ -1,12 +1,13 @@
 interface TodoRepositoryGetParams {
     page: number;
     limit: number;
-}
+};
+
 interface TodoRepositoryGetOutput {
     todos: Todo[];
     total: number;
     pages: number;
-}
+};
 
 function get({ page, limit }: TodoRepositoryGetParams): Promise<TodoRepositoryGetOutput> {
     return fetch("/api/todos").then(async (respostaDoServidor) => {
@@ -23,11 +24,11 @@ function get({ page, limit }: TodoRepositoryGetParams): Promise<TodoRepositoryGe
             pages: totalPages,
         }
     });
-}
+};
 
 export const todoRepository = {
     get,
-}
+};
 
 // Model/Schema
 interface Todo {
