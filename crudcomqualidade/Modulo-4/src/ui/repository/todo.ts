@@ -12,7 +12,8 @@ interface TodoRepositoryGetOutput {
 function get({ page, limit }: TodoRepositoryGetParams): Promise<TodoRepositoryGetOutput> {
     return fetch("/api/todos").then(async (respostaDoServidor) => {
         const todosString = await respostaDoServidor.text();
-        const todosFromServer = JSON.parse(todosString).todos;
+        const todosFromServer = parseTodosFromServer(JSON.parse(todosString)).todos;
+
         const ALL_TODOS = todosFromServer;
         const startIndex = (page - 1) * limit;
         const endIndex = page * limit;
@@ -36,4 +37,16 @@ interface Todo {
     content: string;
     date: Date;
     done: boolean;
+}
+
+function parseTodosFromServer( responseBody: unknown ): {todos: Array<Todo>} {
+    console.log("responseBody ", responseBody);
+    if(responseBody !== null) {
+        console.log("responseBody ", responseBody);
+
+    }
+
+    return {
+        todos: [],
+    }
 }
