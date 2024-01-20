@@ -21,7 +21,7 @@
     "baseUrl": ".",
     "paths": {
       "@db-crud-todo": [
-        "core/crud.js"
+        "code/crud.js"
       ],
       "@ui/*": [
         "src/ui/*"
