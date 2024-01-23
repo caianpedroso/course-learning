@@ -10,24 +10,27 @@ interface HomePage {
 }
 
 export default function Page() {
+    const [initialLoadComplete, setInitialLoadComplete ] = React.useState(false);
     const [totalPages, setTotalPages] = React.useState(0);
-    const [ page, setPage ] = React.useState(1)
+    const [page, setPage] = React.useState(1)
     const [todos, setTodos] = React.useState<HomePage[]>([]);
+    const [isLoading, setIsLoading] = React.useState(true);
     const hasMorePages = totalPages > page;
-
+    const hasNoTodos = todos.length === 0 && !isLoading;
 
     // Load infos onload
     React.useEffect(() => {
-        todoController.get({ page }).then(({ todos, pages }) => {
-            setTodos((oldTodos) => {
-                return [
-                    ...oldTodos,
-                    ...todos,
-                ]
+        setInitialLoadComplete(true);
+        if(!initialLoadComplete) {
+            todoController.get({ page }).then(({ todos, pages }) => {
+                setTodos(todos);
+                setTotalPages(pages);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
-            setTotalPages(pages);
-        });
-    }, [page])
+        }
+    }, [])
 
     return (
         <main>
@@ -84,22 +87,25 @@ export default function Page() {
                             )
                         })}
                         
+                        {isLoading && (
+                            <tr>
+                                <td
+                                    colSpan={4}
+                                    align="center"
+                                    style={{ textAlign: "center" }}
+                                >
+                                    Carregando...
+                                </td>
+                            </tr>
+                        )}
 
-                        <tr>
-                            <td
-                                colSpan={4}
-                                align="center"
-                                style={{ textAlign: "center" }}
-                            >
-                                Carregando...
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td colSpan={4} align="center">
-                                Nenhum item encontrado
-                            </td>
-                        </tr>
+                        {hasNoTodos && (
+                            <tr>
+                                <td colSpan={4} align="center">
+                                    Nenhum item encontrado
+                                </td>
+                            </tr>
+                        )}
                         {hasMorePages && (
                             <tr>
                                 <td
@@ -107,7 +113,23 @@ export default function Page() {
                                     align="center"
                                     style={{ textAlign: "center" }}
                                 >
-                                    <button data-type="load-more" onClick={() => setPage(page + 1)}>
+                                    <button 
+                                        data-type="load-more" 
+                                        onClick={() => {
+                                            setIsLoading(true);
+                                            const nextPage = page + 1;
+                                            setPage(nextPage);
+
+                                            todoController.get({ page: nextPage }).then(({ todos, pages }) => {
+                                                setTodos((oldTodos) => {
+                                                    return [...oldTodos, ...todos]
+                                                });
+                                                setTotalPages(pages);
+                                            })
+                                            .finally(() => {
+                                                setIsLoading(false);
+                                            });
+                                        }}>
                                         Pagina {page},  Carregar mais{" "}
                                         <span
                                             style={{
