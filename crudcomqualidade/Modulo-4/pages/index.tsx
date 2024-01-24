@@ -12,11 +12,14 @@ interface HomePage {
 export default function Page() {
     const [initialLoadComplete, setInitialLoadComplete ] = React.useState(false);
     const [totalPages, setTotalPages] = React.useState(0);
-    const [page, setPage] = React.useState(1)
+    const [page, setPage] = React.useState(1);
+    const [search, setSearch] = React.useState("")
     const [todos, setTodos] = React.useState<HomePage[]>([]);
     const [isLoading, setIsLoading] = React.useState(true);
+    const homeTodos = todoController.filterTodosByContent<HomePage>(search, todos);
+
     const hasMorePages = totalPages > page;
-    const hasNoTodos = todos.length === 0 && !isLoading;
+    const hasNoTodos = homeTodos.length === 0 && !isLoading;
 
     // Load infos onload
     React.useEffect(() => {
@@ -56,6 +59,11 @@ export default function Page() {
                     <input
                         type="text"
                         placeholder="Filtrar lista atual, ex: Dentista"
+                        value={search}
+                        onChange={function handleSearch(event) {
+                            console.log("Change ! ", event.target.value)
+                            setSearch(event.target.value)
+                        }}  
                     />
                 </form>
 
@@ -72,7 +80,7 @@ export default function Page() {
                     </thead>
 
                     <tbody>
-                        {todos.map((currentTodo) => {
+                        {homeTodos.map((currentTodo) => {
                             return(
                             <tr>
                                 <td key={currentTodo.id}>
