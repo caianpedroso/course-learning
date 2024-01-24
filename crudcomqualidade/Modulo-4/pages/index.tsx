@@ -10,10 +10,10 @@ interface HomePage {
 }
 
 export default function Page() {
-    const [initialLoadComplete, setInitialLoadComplete ] = React.useState(false);
+    const initialLoadComplete = React.useRef(false);
     const [totalPages, setTotalPages] = React.useState(0);
     const [page, setPage] = React.useState(1);
-    const [search, setSearch] = React.useState("")
+    const [search, setSearch] = React.useState("");
     const [todos, setTodos] = React.useState<HomePage[]>([]);
     const [isLoading, setIsLoading] = React.useState(true);
     const homeTodos = todoController.filterTodosByContent<HomePage>(search, todos);
@@ -23,14 +23,14 @@ export default function Page() {
 
     // Load infos onload
     React.useEffect(() => {
-        setInitialLoadComplete(true);
-        if(!initialLoadComplete) {
+        if(!initialLoadComplete.current) {
             todoController.get({ page }).then(({ todos, pages }) => {
                 setTodos(todos);
                 setTotalPages(pages);
             })
             .finally(() => {
                 setIsLoading(false);
+                initialLoadComplete.current = true;
             });
         }
     }, [])
