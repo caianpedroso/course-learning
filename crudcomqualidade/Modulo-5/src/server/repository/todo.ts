@@ -1,4 +1,4 @@
-import { read } from "../../../core/crud";
+import { read, create } from "../../../core/crud";
 
 interface  TodoRepositoryGetParams {
     page?: number;
@@ -28,8 +28,15 @@ function get({page, limit}: TodoRepositoryGetParams = {}): TodoRepositoryGetOutp
     }
 }
 
+async function createByContent(content: string): Promise<Todo> {
+    const newTodo =  create(content);
+
+    return newTodo;
+}
+
 export const todoRepository = {
     get,
+    createByContent
 };
 
 // Model/Schema

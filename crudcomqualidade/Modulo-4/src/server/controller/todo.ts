@@ -1,5 +1,4 @@
 import { todoRepository } from "@server/repository/todo";
-import { read } from "../../../core/crud";
 import { NextApiRequest, NextApiResponse } from "next";
 
 function get(req: NextApiRequest, res: NextApiResponse) {
