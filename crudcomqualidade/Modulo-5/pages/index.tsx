@@ -47,7 +47,11 @@ export default function Page() {
                     <h1>O que fazer hoje?</h1>
                 </div>
                 <form>
-                    <input type="text" placeholder="Correr, Estudar..." />
+                    <input type="text" placeholder="Correr, Estudar..." 
+                        onChange={function newTodoHandler(event) {
+                            console.log(event.target.value)
+                        }}  
+                    />
                     <button type="submit" aria-label="Adicionar novo item">
                         +
                     </button>
