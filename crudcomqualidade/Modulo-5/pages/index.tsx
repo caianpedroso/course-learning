@@ -60,8 +60,11 @@ export default function Page() {
                             });
                             setNewTodoContent("");
                         },
-                        onError() {
-                            alert("dsdsdsds")
+                        onError(customMessage) {
+                            alert(
+                                customMessage ||
+                                  "Você precisa ter um conteúdo para criar uma TODO!"
+                              );
                         }
                     })
                 }}>

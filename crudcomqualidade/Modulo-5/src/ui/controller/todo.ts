@@ -27,7 +27,7 @@ function filterTodosByContent<Todo>(
 interface TodoControllerCreatetParams {
     content?: string;
     onSuccess: (todo: any) => void;
-    onError: () => void;
+    onError: (customMessage?: string) => void;
 }
 function create({content, onSuccess, onError}: TodoControllerCreatetParams) {
     // Fail Fast
