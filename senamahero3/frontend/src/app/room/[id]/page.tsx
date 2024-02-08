@@ -16,6 +16,10 @@ export default function Room({ params }: { params: { id: string } }) {
           socketId: socket.id
       })
       await initCamera();
+
+      socket?.on(`new user`, (data) => {
+        console.log(data)
+      })
     });
 
   }, [socket]);
