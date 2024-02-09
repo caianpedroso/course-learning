@@ -5,10 +5,11 @@ export default function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  if (request.method === "DELETE") {
+    console.log("request.methoddddddd ", request.method)
+//   if (request.method === "DELETE") {
     todoController.deleteById(request, response);
     return;
-  }
+//   }
 
   response.status(405).json({
     error: {

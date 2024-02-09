@@ -94,9 +94,19 @@ async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
     }
 }
 
+async function deleteById(req: NextApiRequest, res: NextApiResponse) {
+    const todoId = req.query.id;
+    res.status(200).json({
+        debug: {
+            todoId,
+        }
+    })
+}
+
 export const todoController = {
     get,
     create,
     toggleDone,
+    deleteById
 };
  
