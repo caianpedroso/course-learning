@@ -1,6 +1,7 @@
 import React from "react";
 import { GlobalStyles } from "@ui/theme/GlobalStyles";
 import { todoController } from "@ui/controller/todo";
+import { todo } from "node:test";
 
 const bg = "/bg.jpeg";
 
@@ -143,7 +144,23 @@ export default function Page() {
                                     {currentTodo.done && <s>{currentTodo.content}</s>}
                                 </td>
                                 <td align="right">
-                                    <button data-type="delete">Apagar</button>
+                                    <button 
+                                        data-type="delete"
+                                        onClick={function handleClick() {
+                                          todoController.deleteById(currentTodo.id).then(() => {
+                                            setTodos((cTodos) => {
+                                              return cTodos.filter((cTodo) => {
+                                                return cTodo.id !== currentTodo.id;
+                                              })
+                                            })
+                                          }).catch(() => {
+                                            console.error("Failed to delete")
+                                          })
+                                          
+                                        }}
+                                    >
+                                        Apagar
+                                    </button>
                                 </td>
                             </tr>
                             )
