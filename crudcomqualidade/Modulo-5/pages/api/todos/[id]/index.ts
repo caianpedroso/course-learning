@@ -5,15 +5,14 @@ export default function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-    console.log("request.methoddddddd ", request.method)
-//   if (request.method === "DELETE") {
-    todoController.deleteById(request, response);
-    return;
-//   }
+    if (request.method === "DELETE") {
+        todoController.deleteById(request, response);
+        return;
+    }
 
-  response.status(405).json({
-    error: {
-      message: "Method not allowed",
+    response.status(405).json({
+        error: {
+            message: "Method not allowed",
     },
   });
 }
