@@ -70,11 +70,14 @@ export default function Page() {
                         }
                     })
                 }}>
-                    <input type="text" placeholder="Correr, Estudar..." 
-                        value={newTodoContent}
-                        onChange={function newTodoHandler(event) {
-                            setNewTodoContent(event.target.value)
-                        }}  
+                    <input 
+                      name="add-todo"
+                      type="text" 
+                      placeholder="Correr, Estudar..." 
+                      value={newTodoContent}
+                      onChange={function newTodoHandler(event) {
+                          setNewTodoContent(event.target.value)
+                      }}  
                     />
                     <button type="submit" aria-label="Adicionar novo item">
                         +
