@@ -13,7 +13,7 @@
     "lint:fix": "npm run lint -- --fix",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test": "start-server-and-test dev http://localhost:3000/ cy:run"
+    "test": "start-server-and-test dev http://localhost:3000 cy:run"
   },
   "keywords": [],
   "author": "",
@@ -35,7 +35,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.2",
     "nodemon": "^3.0.2",
-    "prettier": "^3.1.1"
+    "prettier": "^3.1.1",
+    "start-server-and-test": "^2.0.3"
   },
   "dependencies": {
     "next": "^14.0.4",
