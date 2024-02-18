@@ -37,7 +37,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
         total: output.total,
     });
     return;
-}
+};
 
 const TodoCreateBodySchema = schema.object({
     content: schema.string(),
@@ -63,7 +63,7 @@ async function create(req: NextApiRequest, res: NextApiResponse) {
     res.status(201).json({
         todo: createdTodo,
     });
-}
+};
 
 async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
     const todoId = req.query.id;
@@ -92,7 +92,7 @@ async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
             });
         }
     }
-}
+};
 
 async function deleteById(req: NextApiRequest, res: NextApiResponse) {
     // TODO Validate query schema;
@@ -130,7 +130,7 @@ async function deleteById(req: NextApiRequest, res: NextApiResponse) {
             },
         });
     }
-}
+};
 
 export const todoController = {
     get,
