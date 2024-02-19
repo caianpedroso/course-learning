@@ -15,7 +15,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    }
+    };
 
     if (query.limit && isNaN(limit)) {
         res.status(400).json({
@@ -24,7 +24,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    }
+    };
 
     const output = todoRepository.get({
         page: page,
@@ -56,7 +56,7 @@ async function create(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    }
+    };
 
     //Retornar um erro, caso não tenha `content`
     const createdTodo = await todoRepository.createByContent(body.data.content);
@@ -75,7 +75,7 @@ async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    }
+    };
 
     try {
         const updatedTodo = await todoRepository.toggleDone(todoId);
