@@ -15,7 +15,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    };
+    }
 
     if (query.limit && isNaN(limit)) {
         res.status(400).json({
@@ -24,9 +24,9 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    };
+    }
 
-    const output = todoRepository.get({
+    const output = await todoRepository.get({
         page: page,
         limit: limit,
     });
@@ -37,7 +37,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
         total: output.total,
     });
     return;
-};
+}
 
 const TodoCreateBodySchema = schema.object({
     content: schema.string(),
@@ -56,14 +56,14 @@ async function create(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    };
+    }
 
     //Retornar um erro, caso não tenha `content`
     const createdTodo = await todoRepository.createByContent(body.data.content);
     res.status(201).json({
         todo: createdTodo,
     });
-};
+}
 
 async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
     const todoId = req.query.id;
@@ -75,7 +75,7 @@ async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    };
+    }
 
     try {
         const updatedTodo = await todoRepository.toggleDone(todoId);
@@ -92,7 +92,7 @@ async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
             });
         }
     }
-};
+}
 
 async function deleteById(req: NextApiRequest, res: NextApiResponse) {
     // TODO Validate query schema;
@@ -130,7 +130,7 @@ async function deleteById(req: NextApiRequest, res: NextApiResponse) {
             },
         });
     }
-};
+}
 
 export const todoController = {
     get,
