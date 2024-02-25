@@ -37,7 +37,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
         total: output.total,
     });
     return;
-}
+};
 
 const TodoCreateBodySchema = schema.object({
     content: schema.string(),
