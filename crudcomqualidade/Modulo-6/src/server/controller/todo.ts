@@ -56,7 +56,7 @@ async function create(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    }
+    };
 
     //Retornar um erro, caso não tenha `content`
     try {
@@ -71,8 +71,8 @@ async function create(req: NextApiRequest, res: NextApiResponse) {
                 message: "Faled to create todo", 
             }
         })
-    }
-}
+    };
+};
 
 async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
     const todoId = req.query.id;
@@ -99,9 +99,9 @@ async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
                     message: err.message,
                 },
             });
-        }
-    }
-}
+        };
+    };
+};
 
 async function deleteById(req: NextApiRequest, res: NextApiResponse) {
     // TODO Validate query schema;
