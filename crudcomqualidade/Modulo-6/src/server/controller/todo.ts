@@ -70,7 +70,7 @@ async function create(req: NextApiRequest, res: NextApiResponse) {
             error: {
                 message: "Faled to create todo", 
             }
-        })
+        });
     };
 };
 
@@ -118,7 +118,7 @@ async function deleteById(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    }
+    };
 
     try {
         const todoId = parserQuery.data.id;
@@ -138,8 +138,8 @@ async function deleteById(req: NextApiRequest, res: NextApiResponse) {
                 message: `Internal server error`,
             },
         });
-    }
-}
+    };
+};
 
 export const todoController = {
     get,
