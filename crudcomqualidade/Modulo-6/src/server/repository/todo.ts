@@ -92,7 +92,7 @@ async function getTodoById(id: string): Promise<Todo> {
     if (!parsedData.success) throw new Error("Failed to parse TODO created");
   
     return parsedData.data;
-  }
+  };
 
 async function toggleDone(id: string): Promise<Todo> {
     const todo = await getTodoById(id);
@@ -119,7 +119,7 @@ async function toggleDone(id: string): Promise<Todo> {
     //     done: !todo.done,
     // });
     // return updateTodo;
-}
+};
 
 async function deleteById(id: string) {
     const { error } = await supabase.from("todos").delete().match({
@@ -135,7 +135,7 @@ async function deleteById(id: string) {
     // if (!todo) throw new HttpNotFoundError(`Todo with id "${id}" not found`);
 
     // dbDeleteById(id);
-}
+};
 
 export const todoRepository = {
     get,
