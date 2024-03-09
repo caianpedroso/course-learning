@@ -15,7 +15,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    };
+    }
 
     if (query.limit && isNaN(limit)) {
         res.status(400).json({
@@ -24,7 +24,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    };
+    }
 
     const output = await todoRepository.get({
         page: page,
@@ -37,7 +37,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
         total: output.total,
     });
     return;
-};
+}
 
 const TodoCreateBodySchema = schema.object({
     content: schema.string(),
@@ -84,7 +84,7 @@ async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    }
+    };
 
     try {
         const updatedTodo = await todoRepository.toggleDone(todoId);
