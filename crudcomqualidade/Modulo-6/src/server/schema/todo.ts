@@ -11,7 +11,7 @@ export const TodoSchema = schema.object({
   done: schema.string().transform((done) => {
     if(done === "true") {
       return true;
-    }
+    };
     return false;
   }),
 });
