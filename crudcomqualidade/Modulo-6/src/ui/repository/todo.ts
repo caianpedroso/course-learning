@@ -31,7 +31,7 @@ function get({
             };
         },
     );
-}
+};
 
 export async function createByContent(content: string): Promise<Todo> {
     const response = await fetch("/api/todos", {
@@ -60,7 +60,7 @@ export async function createByContent(content: string): Promise<Todo> {
     }
 
     throw new Error("Failed to create TODO :(");
-}
+};
 
 async function toggleDone(todoId: string): Promise<Todo> {
     const response = await fetch(`/api/todos/${todoId}/toggle-done`, {
@@ -84,7 +84,7 @@ async function toggleDone(todoId: string): Promise<Todo> {
     }
 
     throw new Error("Server Error");
-}
+};
 
 async function deleteById(id: string) {
     const response = await fetch(`/api/todos/${id}`, {
@@ -93,7 +93,7 @@ async function deleteById(id: string) {
     if (!response.ok) {
         throw new Error("Faled do delete");
     }
-}
+};
 
 export const todoRepository = {
     get,
