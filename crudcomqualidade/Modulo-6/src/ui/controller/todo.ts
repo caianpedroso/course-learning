@@ -71,12 +71,12 @@ function toggleDone({
         .catch(() => {
             onError();
         });
-}
+};
 
 async function deleteById(id: string): Promise<void> {
     const todoId = id;
     todoRepository.deleteById(todoId);
-}
+};
 
 export const todoController = {
     get,
