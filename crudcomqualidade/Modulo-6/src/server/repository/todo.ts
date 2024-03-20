@@ -36,7 +36,7 @@ async function get({
     if (!parsedData.success) {
         // throw parsedData.error;
         throw new Error("Failed to parse TODO from database");
-    }
+    };
 
     const todos = parsedData.data;
     const total = count || todos.length;
@@ -45,7 +45,7 @@ async function get({
         todos,
         total,
         pages: totalPages,
-    }
+    };
 
     // const currentPage = page || 1;
     // const currentLimit = limit || 10;
@@ -61,7 +61,7 @@ async function get({
     //     total: ALL_TODOS.length,
     //     pages: totalPages,
     // };
-}
+};
 
 async function createByContent(content: string): Promise<Todo> {
     const { data, error } = await supabase.from("todos").insert([
@@ -77,7 +77,7 @@ async function createByContent(content: string): Promise<Todo> {
     return parsedData;
     // const newTodo = create(content);
     // return newTodo;
-}
+};
 
 async function getTodoById(id: string): Promise<Todo> {
     const { data, error } = await supabase
