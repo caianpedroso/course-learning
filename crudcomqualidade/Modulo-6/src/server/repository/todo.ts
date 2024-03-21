@@ -106,7 +106,7 @@ async function toggleDone(id: string): Promise<Todo> {
 
     if(!parsedData.success) {
         throw new Error("Failed to return updated todo");
-    }
+    };
 
     return parsedData.data;
 
