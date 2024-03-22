@@ -14,15 +14,15 @@ class App {
                 origin: '*'
             }
         });
-    }
+    };
     public listen(){
         this.http.listen(3333, () => {
             console.log("Serve")
         });
-    }
+    };
     public listenSocket() {
         this.io.of('/streams').on('connection', this.socketEvents)
-    }
+    };
     private socketEvents(socket: Socket) {
         console.log("Socket connected ", socket.id)
         socket.on('subscribe', (data) => {
