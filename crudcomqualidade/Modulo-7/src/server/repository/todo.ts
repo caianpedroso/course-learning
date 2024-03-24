@@ -121,7 +121,7 @@ async function toggleDone(id: string): Promise<Todo> {
     // return updateTodo;
 };
 
-async function deleteById(id: string) {
+async function deleteById(id: string || number) {
     const { error } = await supabase.from("todos").delete().match({
         id,
     })
