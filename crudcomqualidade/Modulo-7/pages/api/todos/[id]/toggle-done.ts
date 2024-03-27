@@ -8,7 +8,7 @@ export default async function handler(
     if (request.method === "PUT") {
         await todoController.toggleDone(request, response);
         return;
-    }
+    };
 
     response.status(405).json({
         message: "Method not allowed",

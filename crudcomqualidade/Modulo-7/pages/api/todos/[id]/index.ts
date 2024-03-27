@@ -8,7 +8,7 @@ export default async function handler(
     if (request.method === "DELETE") {
         await todoController.deleteById(request, response);
         return;
-    }
+    };
 
     response.status(405).json({
         error: {
