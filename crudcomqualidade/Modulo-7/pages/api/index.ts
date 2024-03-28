@@ -5,4 +5,4 @@ export default async function handler(
     response: NextApiResponse,
 ) {
     response.status(200).json({ message: "Olá Mundo!" });
-}
+};

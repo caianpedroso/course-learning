@@ -11,7 +11,7 @@ export default async function handler(
     if (request.method === "GET") {
         await todoController.get(request, response);
         return;
-    }
+    };
 
     if (request.method === "POST") {
         await todoController.create(request, response);
