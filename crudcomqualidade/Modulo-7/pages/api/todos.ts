@@ -16,7 +16,7 @@ export default async function handler(
     if (request.method === "POST") {
         await todoController.create(request, response);
         return;
-    }
+    };
 
     response.status(405).json({
         error: {

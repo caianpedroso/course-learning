@@ -247,7 +247,7 @@ export default function Page() {
                                                 });
                                         }}
                                     >
-                                        Pagina {page}, Carregar mais{" "}
+                                        Pagina {page}, Carregar mais
                                         <span
                                             style={{
                                                 display: "inline-block",
