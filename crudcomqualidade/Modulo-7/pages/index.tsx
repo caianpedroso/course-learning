@@ -8,7 +8,7 @@ interface HomePage {
     id: string;
     content: string;
     done: boolean;
-}
+};
 
 export default function Page() {
     const initialLoadComplete = React.useRef(false);
