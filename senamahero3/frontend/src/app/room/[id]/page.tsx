@@ -33,7 +33,7 @@ export default function Room({ params }: { params: { id: string } }) {
       }
     })
     if(localStream.current) localStream.current.srcObject = video;
-  }
+  };
   
   return (
     <div className="h-mas screen">
