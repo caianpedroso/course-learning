@@ -64,4 +64,4 @@ export default function Room({ params }: { params: { id: string } }) {
       <Footer />
     </div>
   );
-}
+};
