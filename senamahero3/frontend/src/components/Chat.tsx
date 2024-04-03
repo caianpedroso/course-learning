@@ -6,7 +6,7 @@ interface IChatMessage {
   username: string;
   roomId: string;
   time: string;
-}
+};
 export default function Chat({ roomId }: { roomId: string }) {
   const currentMsg = useRef<HTMLInputElement>(null);
   const { socket } = useContext(SocketContext);
