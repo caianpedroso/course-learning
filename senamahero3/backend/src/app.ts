@@ -40,7 +40,7 @@ class App {
                 });
             });
         });
-    }
-}
+    };
+};
 
 export { App };
