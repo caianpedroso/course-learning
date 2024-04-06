@@ -17,7 +17,7 @@ class App {
     };
     public listen(){
         this.http.listen(3333, () => {
-            console.log("Serve")
+            console.log("Serve");
         });
     };
     public listenSocket() {
