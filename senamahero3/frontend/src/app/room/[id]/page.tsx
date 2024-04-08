@@ -31,7 +31,7 @@ export default function Room({ params }: { params: { id: string } }) {
         noiseSuppression: true,
         echoCancellation: true,
       }
-    })
+    });
     if(localStream.current) localStream.current.srcObject = video;
   };
   
