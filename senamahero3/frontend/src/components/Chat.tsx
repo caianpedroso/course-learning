@@ -34,7 +34,8 @@ export default function Chat({ roomId }: { roomId: string }) {
 
       currentMsg.current.value = '';
     }
-  }
+  };
+console.log(socket)
   return (
     <div className=" relative min-h-[70vh]  bg-gray-900 px-4 pt-4 md:w-[15%] hidden md:flex flex-col rounded-md m-3 h-full">
       <div className=" h-full w-full">
