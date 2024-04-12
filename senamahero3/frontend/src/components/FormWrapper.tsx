@@ -35,7 +35,7 @@ export default function FormWrapper() {
       </div>
     </div>
   );
-}
+};
 
 const RoomSelector = ({ selectedRoom }: { selectedRoom: string }) => {
   switch (selectedRoom) {
