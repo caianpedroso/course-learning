@@ -14,8 +14,8 @@ export default function JoinRoom() {
       sessionStorage.setItem('username', name.current.value);
       const roomId = id.current.value;
       window.location.href = `/room/${roomId}`
-    }
-  }
+    };
+  };
 
   return (
     <form onSubmit={(e) => handleJoinRoom(e)} className='space-y-8'>
@@ -25,4 +25,4 @@ export default function JoinRoom() {
       <Button title="Entrar" type="submit" />
     </form>
   );
-}
+};
