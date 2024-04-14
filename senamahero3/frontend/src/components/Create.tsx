@@ -15,8 +15,8 @@ export default function CreateRoom() {
       const roomId = generateRandomString();
       console.log("roomId: ", roomId);
       router.push(`/room/${roomId}`)
-    }
-  }
+    };
+  };
 
   function generateRandomString() {
     const randomString = Math.random().toString(36).substring(2, 7);
