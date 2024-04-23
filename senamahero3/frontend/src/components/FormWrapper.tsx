@@ -45,5 +45,5 @@ const RoomSelector = ({ selectedRoom }: { selectedRoom: string }) => {
       return <JoinRoom />;
     default:
       return <JoinRoom />;
-  }
+  };
 };
