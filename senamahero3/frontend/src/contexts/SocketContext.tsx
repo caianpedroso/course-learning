@@ -5,7 +5,7 @@ import { Socket, io } from "socket.io-client";
 
 interface ISocketContext {
     socket: Socket | null;
-}
+};
 export const SocketContext = createContext({} as ISocketContext);
 
 export function SocketProvider({children}: {children: ReactNode}) {
