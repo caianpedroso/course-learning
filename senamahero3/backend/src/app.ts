@@ -28,8 +28,7 @@ class App {
         socket.on('subscribe', (data) => {
             console.log('Usuario inserido na sala: ', data.roomId)
             socket.join(data.roomId);
-
-            const roomsSession = Array.from(socket.rooms)
+            const roomsSession = Array.from(socket.rooms);
 
             socket.on('chat', (data) => {
                 console.log('Chegou uma nova menssagem: ', data)
