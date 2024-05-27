@@ -12,7 +12,7 @@ class App {
         this.io = new Server(this.http, {
             cors: {
                 origin: '*'
-            }
+            },
         });
     };
     public listen(){
