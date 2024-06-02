@@ -4,13 +4,13 @@ import { read, create, update, deleteById as dbDeleteById } from "../../../core/
 interface  TodoRepositoryGetParams {
     page?: number;
     limit?: number;
-}
+};
 
 interface TodoRepositoryGetOutput {
    todos: Todo[];
    total: number;
    pages: number; 
-}
+};
 
 function get({page, limit}: TodoRepositoryGetParams = {}): TodoRepositoryGetOutput {
     const currentPage = page || 1
@@ -26,14 +26,14 @@ function get({page, limit}: TodoRepositoryGetParams = {}): TodoRepositoryGetOutp
         todos: paginatedTodos,
         total: ALL_TODOS.length,
         pages: totalPages,
-    }
-}
+    };
+};
 
 async function createByContent(content: string): Promise<Todo> {
     const newTodo =  create(content);
 
     return newTodo;
-}
+};
 
 async function toggleDone(id: string): Promise<Todo> {
     
