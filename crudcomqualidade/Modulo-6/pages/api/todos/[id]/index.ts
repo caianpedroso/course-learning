@@ -15,4 +15,4 @@ export default async function handler(
             message: "Method not allowed",
         },
     });
-}
+};
