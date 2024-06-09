@@ -69,11 +69,11 @@ function parseTodosFromServer( responseBody: unknown ): {
                 }
             })
         }
-    }
+    };
 
     return {
         pages: 1,
         total: 0,
         todos: [],
     }
-}
+};
