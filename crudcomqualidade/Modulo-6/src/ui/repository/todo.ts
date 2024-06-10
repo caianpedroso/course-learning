@@ -3,13 +3,13 @@ import { z as schema } from "zod";
 interface TodoRepositoryGetParams {
     page: number;
     limit: number;
-}
+};
 
 interface TodoRepositoryGetOutput {
     todos: Todo[];
     total: number;
     pages: number;
-}
+};
 
 function get({
     page,
