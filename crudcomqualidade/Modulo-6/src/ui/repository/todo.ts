@@ -57,7 +57,7 @@ export async function createByContent(content: string): Promise<Todo> {
         }
         const todo = serverResponseParsed.data.todo;
         return todo;
-    }
+    };
 
     throw new Error("Failed to create TODO :(");
 };
@@ -76,7 +76,7 @@ async function toggleDone(todoId: string): Promise<Todo> {
             ServerResponseSchema.safeParse(serverResponse);
         if (!serverResponseParsed.success) {
             throw new Error(`Failed to update TODO with id ${todoId}`);
-        }
+        };
 
         const updateTodo = serverResponseParsed.data.todo;
 
