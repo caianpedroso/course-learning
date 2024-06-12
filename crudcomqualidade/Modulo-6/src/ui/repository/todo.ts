@@ -152,4 +152,4 @@ function parseTodosFromServer(responseBody: unknown): {
         total: 0,
         todos: [],
     };
-}
+};
