@@ -46,7 +46,7 @@ async function toggleDone(id: string): Promise<Todo> {
         done: !todo.done
     })
     return updateTodo;
-}
+};
 
 async function deleteById(id: string) {
     // TODO call the delete
@@ -56,7 +56,7 @@ async function deleteById(id: string) {
     if(!todo) throw new HttpNotFoundError(`Todo with id "${id}" not found`);
 
     dbDeleteById(id)
-}
+};
 
 export const todoRepository = {
     get,
