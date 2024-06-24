@@ -13,7 +13,7 @@ function get(req: NextApiRequest, res: NextApiResponse) {
             }
         });
         return;
-    }
+    };
 
     if(query.limit && isNaN(limit)) {
         res.status(400).json({
@@ -22,7 +22,7 @@ function get(req: NextApiRequest, res: NextApiResponse) {
             }
         });
         return;
-    }
+    };
 
     const output = todoRepository.get({
         page: page,
