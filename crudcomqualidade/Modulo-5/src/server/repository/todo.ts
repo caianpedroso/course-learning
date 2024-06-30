@@ -12,6 +12,15 @@ interface TodoRepositoryGetOutput {
    pages: number; 
 };
 
+// Model/Schema
+interface Todo {
+    id: string;
+    content: string;
+    date: string;
+    done: boolean;
+}
+
+
 function get({page, limit}: TodoRepositoryGetParams = {}): TodoRepositoryGetOutput {
     const currentPage = page || 1
     const currentLimit = limit || 10;
@@ -65,10 +74,4 @@ export const todoRepository = {
     deleteById
 };
 
-// Model/Schema
-interface Todo {
-    id: string;
-    content: string;
-    date: string;
-    done: boolean;
-}
+
