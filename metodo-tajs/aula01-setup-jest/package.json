@@ -1,5 +1,6 @@
 {
   "name": "aula01-setup-jest",
+  "autor": "caianpedroso",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +13,5 @@
   "type": "module",
   "engines": {
     "node": "v21.5.0"
-  },
-  "autor": "caianpedroso"
+  }
 }
