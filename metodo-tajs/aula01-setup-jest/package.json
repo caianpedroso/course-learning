@@ -11,7 +11,7 @@
   "license": "ISC",
   "type": "module",
   "engines": {
-    "node": "v21.5.0"
+    "node": "v18.17.0"
   },
   "devDependencies": {
     "jest": "^29.7.0"
