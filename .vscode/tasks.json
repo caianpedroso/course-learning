@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "crudcomqualidade/Modulo-3",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - crudcomqualidade/Modulo-3",
+			"detail": "next build"
+		}
+	]
+}
