@@ -42,6 +42,7 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
 const TodoCreateBodySchema = schema.object({
     content: schema.string(),
 });
+
 async function create(req: NextApiRequest, res: NextApiResponse) {
     // Fail Fast Validation
 
