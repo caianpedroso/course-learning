@@ -100,9 +100,9 @@ async function toggleDone(req: NextApiRequest, res: NextApiResponse) {
                     message: err.message,
                 },
             });
-        };
-    };
-};
+        }
+    }
+}
 
 async function deleteById(req: NextApiRequest, res: NextApiResponse) {
     // TODO Validate query schema;
@@ -119,7 +119,7 @@ async function deleteById(req: NextApiRequest, res: NextApiResponse) {
             },
         });
         return;
-    };
+    }
 
     try {
         const todoId = parserQuery.data.id;
