@@ -1,3 +1,5 @@
 class Person {
-  constructor(name, age) {}
+  constructor(name, age) {
+
+  }
 }
