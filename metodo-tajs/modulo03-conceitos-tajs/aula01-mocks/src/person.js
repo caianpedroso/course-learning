@@ -11,4 +11,6 @@ class Person {
       lastName: lastName.join(' ')
     }
   }
+  constructor() {
+  }
 }
