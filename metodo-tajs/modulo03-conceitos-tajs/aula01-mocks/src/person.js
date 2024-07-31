@@ -11,6 +11,21 @@ class Person {
       lastName: lastName.join(' ')
     }
   }
-  constructor() {
+  static save(person) {
+    if(!['cpf', 'name', 'lastName'].every(prop => person[prop])) {
+      throw new Error(`cannot save invalid person: ${JSON.stringify(person)}`)
+    }
+
+    // .. banco de dados, api, etc
+
+    console.log('registrado com sucesso!!', person)
+  }
+
+  static process(person) {
+    this.validate(person)
+    const personFormatted = this.format(person)
+    this.save(personFormatted)
+
+    return 'ok'
   }
 }
