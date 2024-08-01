@@ -29,3 +29,5 @@ class Person {
     return 'ok'
   }
 }
+
+export default Person;
