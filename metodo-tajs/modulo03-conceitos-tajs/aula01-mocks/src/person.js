@@ -16,8 +16,6 @@ class Person {
       throw new Error(`cannot save invalid person: ${JSON.stringify(person)}`)
     }
 
-    // .. banco de dados, api, etc
-
     console.log('registrado com sucesso!!', person)
   }
 
