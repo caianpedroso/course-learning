@@ -28,4 +28,9 @@ class Person {
   }
 }
 
+Person.prototype({
+  nome: 'Zezin da Silva',
+  cpf: '123.456.789-00',
+})
+
 export default Person;
