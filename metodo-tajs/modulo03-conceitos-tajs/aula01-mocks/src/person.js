@@ -16,7 +16,7 @@ class Person {
       throw new Error(`cannot save invalid person: ${JSON.stringify(person)}`)
     }
 
-    console.log('registrado com sucesso!!', person)
+    console.log('registrado com sucesso!', person)
   }
 
   static process(person) {
