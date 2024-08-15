@@ -20,7 +20,6 @@ class Person {
 
     console.log('registrado com sucesso!', person)
   }
-
   static process(person) {
     this.validate(person)
     const personFormatted = this.format(person)
