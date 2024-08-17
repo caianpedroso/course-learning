@@ -17,7 +17,6 @@ class Person {
     if(!['cpf', 'name', 'lastName'].every(prop => person[prop])) {
       throw new Error(`cannot save invalid person: ${JSON.stringify(person)}`)
     }
-
     console.log('registrado com sucesso!', person)
   }
   static process(person) {
