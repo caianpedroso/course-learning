@@ -4,6 +4,7 @@ class Person {
     if(!person.name) throw new Error('name i required')
     if(!person.cpf) throw new Error('cpf i required')
   }
+
   static format(person) {
     const [name, ...lastName] = person.name.split(' ')
     return {
@@ -12,12 +13,14 @@ class Person {
       lastName: lastName.join(' ')
     }
   }
+
   static save(person) {
     if(!['cpf', 'name', 'lastName'].every(prop => person[prop])) {
       throw new Error(`cannot save invalid person: ${JSON.stringify(person)}`)
     }
     console.log('registrado com sucesso!', person)
   }
+  
   static process(person) {
     this.validate(person)
     const personFormatted = this.format(person)
