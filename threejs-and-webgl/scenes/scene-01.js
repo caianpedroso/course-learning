@@ -11,5 +11,9 @@ renderer.setAnimationLoop(() => {
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
 
-  renderer.render(scene, camera);
-})
+  x3.tick();
+
+  x3.fps(() => {
+    renderer.render(scene, camera);
+  });
+});
