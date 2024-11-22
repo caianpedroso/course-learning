@@ -1,5 +1,8 @@
 const material = new THREE.MeshLambertMaterial(
-  { color: 0x348feb },
+  {
+    color: 0x348feb,
+    side: THREE.DoubleSide
+  },
 );
 
 const cube = new THREE.Mesh(
