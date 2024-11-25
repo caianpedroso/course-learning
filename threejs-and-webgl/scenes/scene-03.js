@@ -1,7 +1,7 @@
 const path = new THREE.Path();
 
 path.moveTo(1, 3);
-path.quadraticCurveTo(6, 1, 8,3);
+path.bezierCurveTo(3, 4, 5,5, 8, 3);
 
 const geometry = new THREE.BufferGeometry();
 geometry.setFromPoints(path.getPoints());
