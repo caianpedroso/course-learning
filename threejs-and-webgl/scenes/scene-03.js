@@ -1,4 +1,4 @@
-const path = new THREE.Path();
+const path = new THREE.Shape();
 
 path.moveTo(0.3, 1.5);
 path.quadraticCurveTo(0.3,2.2,0.9, 2.2);
@@ -8,16 +8,27 @@ path.quadraticCurveTo(2.5, 2.2, 2.5, 1.5);
 path.quadraticCurveTo(2.5,1.0, 1.4, 0.3);
 path.quadraticCurveTo(0.3, 1.0,0.3, 1.5);
 
-const geometry = new THREE.BufferGeometry();
-geometry.setFromPoints(path.getPoints());
+// const geometry = new THREE.ShapeBufferGeometry(
+//   path
+// );
 
-const material = new THREE.LineBasicMaterial(
-  {
-    color: 0xFFFFFF,
+const geometry = new THREE.ExtrudeBufferGeometry(
+  path,  {
+    depth: 0.01,
+    bevelEnabled: true,
+    bevelSize: 0.1,
+    bevelThickness: 0.1,
   }
 );
 
-const draw = new THREE.Line(geometry, material);
+const material = new THREE.MeshLambertMaterial(
+  {
+    color: 0xeb3452,
+    side: THREE.DoubleSide
+  }
+);
+
+const draw = new THREE.Mesh(geometry, material);
 
 scene.add(draw);
 
