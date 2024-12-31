@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows XP Sound Player</title>
+  <style>
+      body {
+          margin: 0;
+          overflow: hidden;
+      }
+  </style>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+<script>
+  // Configuração básica
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // Luz
+  const light = new THREE.PointLight(0xffffff, 1, 100);
+  light.position.set(10, 10, 10);
+  scene.add(light);
+
+  // Base do player
+  const playerBaseGeometry = new THREE.BoxGeometry(8, 2, 0.5);
+  const playerBaseMaterial = new THREE.MeshStandardMaterial({ color: 0xdddddd });
+  const playerBase = new THREE.Mesh(playerBaseGeometry, playerBaseMaterial);
+  scene.add(playerBase);
+
+  // Botão Play
+  const buttonGeometry = new THREE.CircleGeometry(0.4, 32);
+  const playButtonMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+  const playButton = new THREE.Mesh(buttonGeometry, playButtonMaterial);
+  playButton.position.set(-2, 0, 0.6);
+  scene.add(playButton);
+
+  // Partículas para visualização do áudio
+  const particleGeometry = new THREE.BufferGeometry();
+  const particleCount = 500;
+  const positions = new Float32Array(particleCount * 3);
+
+  for (let i = 0; i < particleCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 20; // X
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 10; // Y
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 5; // Z
+  }
+
+  particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+  const particleMaterial = new THREE.PointsMaterial({
+    size: 0.2,
+    color: 0x00ffff,
+  });
+
+  const particles = new THREE.Points(particleGeometry, particleMaterial);
+  scene.add(particles);
+
+  // Configuração de áudio
+  const audio = new Audio('mario.mp3'); // Substitua pelo caminho do seu áudio
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const analyser = audioContext.createAnalyser();
+  const source = audioContext.createMediaElementSource(audio);
+  source.connect(analyser);
+  analyser.connect(audioContext.destination);
+
+  playButton.userData = { audio }; // Armazena o áudio no botão
+
+  // Detectar cliques no botão
+  window.addEventListener('click', (event) => {
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects([playButton]);
+
+    if (intersects.length > 0) {
+      const audio = intersects[0].object.userData.audio;
+      if (audio.paused) {
+        audioContext.resume().then(() => {
+          audio.play();
+        }); // Garante que o contexto de áudio seja retomado
+      } else {
+        audio.pause();
+      }
+    }
+  });
+
+  // Atualizar partículas com a frequência do áudio
+  function animateParticles() {
+    const frequencyData = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(frequencyData);
+
+    const positions = particles.geometry.attributes.position.array;
+    for (let i = 0; i < particleCount; i++) {
+      const index = Math.floor((i / particleCount) * frequencyData.length);
+      positions[i * 3 + 1] = frequencyData[index] / 20 - 5; // Modificar Y com base na frequência
+    }
+
+    particles.geometry.attributes.position.needsUpdate = true;
+  }
+
+  // Loop de animação
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Atualizar partículas
+    animateParticles();
+
+    renderer.render(scene, camera);
+  }
+
+
+  // Configurar câmera
+  camera.position.z = 12;
+
+  // Iniciar animação
+  animate();
+</script>
+</body>
+</html>
