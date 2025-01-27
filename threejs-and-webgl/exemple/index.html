@@ -60,17 +60,15 @@
   const particles = new THREE.Points(particleGeometry, particleMaterial);
   scene.add(particles);
 
-  // Configuração de áudio
-  const audio = new Audio('mario.mp3'); // Substitua pelo caminho do seu áudio
+  const audio = new Audio('./mario.mp3');
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
   const analyser = audioContext.createAnalyser();
   const source = audioContext.createMediaElementSource(audio);
   source.connect(analyser);
   analyser.connect(audioContext.destination);
 
-  playButton.userData = { audio }; // Armazena o áudio no botão
+  playButton.userData = { audio };
 
-  // Detectar cliques no botão
   window.addEventListener('click', (event) => {
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
