@@ -105,21 +105,16 @@
     particles.geometry.attributes.position.needsUpdate = true;
   }
 
-  // Loop de animação
   function animate() {
     requestAnimationFrame(animate);
 
-    // Atualizar partículas
     animateParticles();
 
     renderer.render(scene, camera);
   }
 
-
-  // Configurar câmera
   camera.position.z = 12;
 
-  // Iniciar animação
   animate();
 </script>
 </body>

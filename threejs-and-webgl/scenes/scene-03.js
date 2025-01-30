@@ -8,9 +8,6 @@ path.quadraticCurveTo(2.5, 2.2, 2.5, 1.5);
 path.quadraticCurveTo(2.5,1.0, 1.4, 0.3);
 path.quadraticCurveTo(0.3, 1.0,0.3, 1.5);
 
-// const geometry = new THREE.ShapeBufferGeometry(
-//   path
-// );
 
 const geometry = new THREE.ExtrudeBufferGeometry(
   path,  {
