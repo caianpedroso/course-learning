@@ -1,3 +1,5 @@
+import './title.css';
+
 class Title {
   create(title) {
     const h1 = document.createElement("h1");
