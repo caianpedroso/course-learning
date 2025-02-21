@@ -3,6 +3,7 @@ import Image from "./components/image";
 import Button from "./components/button";
 import warning from "./templates/warning.html";
 import "./styles/warning.css";
+import fraseTxt from "./files/frases.txt";
 
 const title = new Title();
 
@@ -28,3 +29,8 @@ console.log(teste);
 // Import de HTML
 const body = document.body;
 body.innerHTML += warning;
+
+// Import arquivo de texto
+const frase = fraseTxt;
+console.log(frase);
+console.log(frase.toUpperCase());
