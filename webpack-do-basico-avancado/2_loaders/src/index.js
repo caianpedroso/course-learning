@@ -1,6 +1,8 @@
 import Title from "./components/title";
 import Image from "./components/image";
 import Button from "./components/button";
+import warning from "./templates/warning.html";
+import "./styles/warning.css";
 
 const title = new Title();
 
@@ -22,3 +24,7 @@ let {a , b,...teste} = obj;
 console.log(a);
 console.log(b);
 console.log(teste);
+
+// Import de HTML
+const body = document.body;
+body.innerHTML += warning;
