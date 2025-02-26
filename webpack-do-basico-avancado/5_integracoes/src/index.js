@@ -1,3 +1,7 @@
+//import fonts
+import './fonts.css';
+
+// import jquery
 import $ from 'jquery';
 
 var body = $('body');
