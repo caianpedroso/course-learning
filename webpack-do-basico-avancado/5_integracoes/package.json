@@ -15,6 +15,10 @@
     "webpack-cli": "^6.0.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "css-loader": "^7.1.2",
     "jquery": "^3.7.1",
     "style-loader": "^4.0.0",
