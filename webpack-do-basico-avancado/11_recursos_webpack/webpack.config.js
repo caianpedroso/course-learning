@@ -8,6 +8,7 @@ module.exports = {
     filename: "[name].js",
     path: path.resolve(__dirname, "./dist"),
   },
+  mode: "development",
   plugins: [
     new webpack.ProvidePlugin({
       _: 'lodash'
