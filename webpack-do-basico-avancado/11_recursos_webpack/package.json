@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "serve": "webpack serve --hot"
   },
   "keywords": [],
   "author": "",
@@ -13,8 +14,10 @@
   "devDependencies": {
     "@babel/core": "^7.26.9",
     "babel-loader": "^10.0.0",
+    "html-webpack-plugin": "^5.6.3",
     "lodash": "^4.17.21",
     "webpack": "^5.98.0",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
   }
 }
