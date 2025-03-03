@@ -11,5 +11,13 @@ module.exports = {
     new webpack.ProvidePlugin({
       _: 'lodash'
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+      }
+    ]
+  }
 }
