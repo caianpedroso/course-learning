@@ -1,4 +1,5 @@
 import print from "./msg";
+import $ from "jquery";
 
 console.log(_.difference([1, 2, 3], [1, 4, 5]));
 
@@ -10,3 +11,5 @@ if(module.hot) {
     print();
   });
 }
+
+const body = $('body');
