@@ -13,3 +13,18 @@ if(module.hot) {
 }
 
 const body = $('body');
+
+function createButton() {
+  const btn = document.createElement('button');
+  btn.innerText = 'Clica Aqui!';
+
+  document.querySelector('body').appendChild(btn);
+
+  btn.onclick = e => import('./lazy').then(module => {
+    const lazy = module.default;
+
+    lazy();
+  })
+}
+
+createButton();
