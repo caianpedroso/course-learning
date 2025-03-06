@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom";
@@ -9,6 +9,8 @@ import { Navbar, Nav, NavItem } from "reactstrap";
 import './app.css';
 
 const App = () => {
+  const HomePage = React.lazy(() => import("HomeApp/HomePage"));
+  const ContactPage = React.lazy(() => import("ContactApp/ContactPage"));
   return (
     <Router>
       <div>
@@ -22,9 +24,16 @@ const App = () => {
             </NavItem>
           </Nav>
         </Navbar>
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Suspense>
       </div>
     </Router>
-  )
-}
+  );
+};
 
 export default App;

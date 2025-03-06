@@ -7,15 +7,23 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].js",
-    publicPath: "http://localhost:9003/",
+    publicPath: "auto", // Melhor compatibilidade
   },
   mode: "development",
+  devtool: "cheap-module-source-map",
   devServer: {
-    // contentBase: path.resolve(__dirname, "./dist"),
-    // index: 'index.html',
+    static: {
+      directory: path.join(__dirname, "public"), // Correção para Webpack 5
+    },
     port: 9003,
     hot: true,
     historyApiFallback: true,
+    client: {
+      overlay: false // Evita que o overlay do Webpack atrapalhe a depuração
+    },
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
@@ -42,13 +50,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./public/index.html",
-      title: 'App'
+      title: 'Contact App'
     }),
     new ModuleFederationPlugin({
-      name: "ContactApp",
-      filename: "remoteEntry.js",
+      name: 'ContactApp',
+      filename: 'remoteEntry.js',
       exposes: {
         './ContactPage': './src/Contact'
+      },
+      shared: {
+        react: { singleton: true, requiredVersion: "^18.2.0" },
+        "react-dom": { singleton: true, requiredVersion: "^18.2.0" }
       }
     })
   ]

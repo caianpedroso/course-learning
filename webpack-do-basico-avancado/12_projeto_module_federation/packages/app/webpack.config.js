@@ -10,6 +10,7 @@ module.exports = {
     publicPath: "http://localhost:9001/",
   },
   mode: "development",
+  devtool: "cheap-module-source-map",
   devServer: {
     // contentBase: path.resolve(__dirname, "./dist"),
     // index: 'index.html',
@@ -49,7 +50,11 @@ module.exports = {
       remotes: {
         HomeApp: 'HomeApp@http://localhost:9002/remoteEntry.js',
         ContactApp: 'ContactApp@http://localhost:9003/remoteEntry.js',
+      },
+      shared: {
+        react: { singleton: true, requiredVersion: "^18.2.0" },
+        "react-dom": { singleton: true, requiredVersion: "^18.2.0" }
       }
-    }),
+    })
   ]
 }

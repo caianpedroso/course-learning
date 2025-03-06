@@ -7,15 +7,23 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].js",
-    publicPath: "http://localhost:9002/",
+    publicPath: "auto", // Melhor compatibilidade
   },
   mode: "development",
+  devtool: "cheap-module-source-map",
   devServer: {
-    // contentBase: path.resolve(__dirname, "./dist"),
-    // index: 'index.html',
+    static: {
+      directory: path.join(__dirname, "public"), // Garante que o index.html está acessível
+    },
     port: 9002,
     hot: true,
     historyApiFallback: true,
+    client: {
+      overlay: false, // Evita que o Webpack exiba erros diretamente no navegador
+    },
+    headers: {
+      "Access-Control-Allow-Origin": "*", // Evita problemas de CORS ao carregar remotes
+    },
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
@@ -42,13 +50,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./public/index.html",
-      title: 'App'
+      title: 'Home App'
     }),
     new ModuleFederationPlugin({
-      name: "HomeApp",
-      filename: "remoteEntry.js",
+      name: 'HomeApp',
+      filename: 'remoteEntry.js',
       exposes: {
-        './HomePage': './src/Home',
+        './HomePage': './src/Home'
+      },
+      shared: {
+        react: { singleton: true, requiredVersion: "^18.2.0" },
+        "react-dom": { singleton: true, requiredVersion: "^18.2.0" }
       }
     })
   ]
