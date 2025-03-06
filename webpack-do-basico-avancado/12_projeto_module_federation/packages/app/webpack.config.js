@@ -9,10 +9,12 @@ module.exports = {
     filename: "[name].js",
     publicPath: "http://localhost:9001/",
   },
+  mode: "development",
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist"),
-    index: 'index.html',
+    // contentBase: path.resolve(__dirname, "./dist"),
+    // index: 'index.html',
     port: 9001,
+    hot: true,
     historyApiFallback: true,
   },
   resolve: {
@@ -21,10 +23,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
-        loader: "babel-loader",
-        options: {
-          presets: [require.resolve("@babel/preset-react")],
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
         }
       },
       {
