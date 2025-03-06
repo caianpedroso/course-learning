@@ -43,6 +43,13 @@ module.exports = {
       filename: "index.html",
       template: "./public/index.html",
       title: 'App'
+    }),
+    new ModuleFederationPlugin({
+      name: "HomeApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        './HomePage': './src/Home',
+      }
     })
   ]
 }
