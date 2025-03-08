@@ -1,5 +1,5 @@
 import helloWorld from "./hello-word";
-import addImage from "./addImage";
+import addImage from "./add-image";
 
 helloWorld();
 addImage();
