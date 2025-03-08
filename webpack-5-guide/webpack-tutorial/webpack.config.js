@@ -14,7 +14,14 @@ module.exports = {
     rules: [
       {
         test: /\.(png|jpg)$/,
-        type: 'asset',
+        // TODO existem 3 tipo de types asset/resource | asset/inline | asset o /resource trata como arquivo externo puxando a imagem externa, /inline trata como arquivo interno, e o asset é e junsao dos dois fazendo que imagens grande sejam externas e images pequena internas
+        type: 'asset/resource',
+        parser: {
+          // TODO este seta a condicao para que o tamanho seja inline ou resource
+          dataUrlCondition: {
+            maxSize: 3 * 1024 // 3 kilobytes
+          }
+        }
       }
     ]
   }
