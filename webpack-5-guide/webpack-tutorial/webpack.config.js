@@ -5,6 +5,9 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist'),
+    publicPath: 'dist/',
+    // TODO: Caso eu tenha uma cdn
+    // publicPath: 'http://come-cdn.com/',
   },
   mode: 'none',
   module: {
