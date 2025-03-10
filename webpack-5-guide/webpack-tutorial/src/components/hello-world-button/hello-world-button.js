@@ -1,6 +1,6 @@
 import './hello-world-button.css';
 
-class HelloWordButton {
+class HelloWorldButton {
   render() {
     const button = document.createElement('button');
     button.innerHTML = 'Hello word';
@@ -9,10 +9,10 @@ class HelloWordButton {
     button.onclick = function () {
       const p = document.createElement('p');
       p.innerText = 'Hello world.';
-      p.classList.add('hello-word-text');
+      p.classList.add('hello-world-text');
       body.appendChild(p);
     }
     body.appendChild(button);
   }
 }
-export default HelloWordButton;
+export default HelloWorldButton;

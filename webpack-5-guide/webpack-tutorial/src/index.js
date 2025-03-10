@@ -1,4 +1,4 @@
-import HelloWordButton from "./components/hello-world-button/hello-word-button";
+import HelloWorldButton from "./components/hello-world-button/hello-world-button";
 
-const helloWordButton = new HelloWordButton();
+const helloWordButton = new HelloWorldButton();
 helloWordButton.render();
